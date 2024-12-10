@@ -18,4 +18,8 @@ export class StockService {
   createStock(stock: Omit<Stock, 'id'>): Observable<Stock> {
     return this.http.post<Stock>(this.apiUrl, stock);
   }
+
+  getStock(id: number): Observable<Stock> {
+    return this.http.get<Stock>(`${this.apiUrl}/${id}`);
+  }
 }

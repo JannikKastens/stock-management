@@ -30,7 +30,7 @@ import { Stock } from '../../models/stock.interface';
         </thead>
         <tbody>
           @for (stock of stocks; track stock.id) {
-          <tr>
+          <tr [routerLink]="['/stocks', stock.id]" style="cursor: pointer;">
             <td>{{ stock.tickerSymbol }}</td>
             <td>{{ stock.name }}</td>
             <td>{{ stock.kaufDatum | date }}</td>
