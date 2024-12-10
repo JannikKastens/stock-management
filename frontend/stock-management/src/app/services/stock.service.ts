@@ -14,4 +14,8 @@ export class StockService {
   getStocks(): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.apiUrl);
   }
+
+  createStock(stock: Omit<Stock, 'id'>): Observable<Stock> {
+    return this.http.post<Stock>(this.apiUrl, stock);
+  }
 }
