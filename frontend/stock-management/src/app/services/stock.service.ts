@@ -7,7 +7,7 @@ import { Stock } from '../models/stock.interface';
   providedIn: 'root',
 })
 export class StockService {
-  private apiUrl = '/api/v1/stocks';
+  private apiUrl = 'http://localhost:8080/api/v1/stocks';
 
   constructor(private http: HttpClient) {}
 
