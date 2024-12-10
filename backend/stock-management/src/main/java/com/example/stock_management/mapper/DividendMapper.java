@@ -15,9 +15,9 @@ public class DividendMapper {
 
     DividendDTO dto = new DividendDTO();
     dto.setId(dividend.getId());
-    dto.setBetrag(dividend.getBetrag().setScale(2, RoundingMode.HALF_UP));
-    dto.setDatum(dividend.getDatum());
-    dto.setWaehrung(dividend.getWaehrung());
+    dto.setAmount(dividend.getAmount().setScale(2, RoundingMode.HALF_UP));
+    dto.setDate(dividend.getDate());
+    dto.setCurrency(dividend.getCurrency());
     return dto;
   }
 
@@ -32,8 +32,8 @@ public class DividendMapper {
   }
 
   public void updateEntityFromDto(DividendDTO dto, Dividend dividend) {
-    dividend.setBetrag(dto.getBetrag().setScale(2, RoundingMode.HALF_UP));
-    dividend.setDatum(dto.getDatum());
-    dividend.setWaehrung(dto.getWaehrung());
+    dividend.setAmount(dto.getAmount().setScale(2, RoundingMode.HALF_UP));
+    dividend.setDate(dto.getDate());
+    dividend.setCurrency(dto.getCurrency());
   }
 }

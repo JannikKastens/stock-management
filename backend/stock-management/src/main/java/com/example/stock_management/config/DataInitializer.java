@@ -31,9 +31,9 @@ public class DataInitializer {
 
       Dividend appleDiv1 = new Dividend();
       appleDiv1.setStock(apple);
-      appleDiv1.setBetrag(new BigDecimal("0.24"));
-      appleDiv1.setDatum(LocalDate.of(2023, 2, 16));
-      appleDiv1.setWaehrung("USD");
+      appleDiv1.setAmount(new BigDecimal("0.24"));
+      appleDiv1.setDate(LocalDate.of(2023, 2, 16));
+      appleDiv1.setCurrency("USD");
       apple.getDividenden().add(appleDiv1);
 
       // Microsoft Aktie
@@ -48,9 +48,9 @@ public class DataInitializer {
 
       Dividend msftDiv1 = new Dividend();
       msftDiv1.setStock(microsoft);
-      msftDiv1.setBetrag(new BigDecimal("0.68"));
-      msftDiv1.setDatum(LocalDate.of(2023, 3, 9));
-      msftDiv1.setWaehrung("USD");
+      msftDiv1.setAmount(new BigDecimal("0.68"));
+      msftDiv1.setDate(LocalDate.of(2023, 3, 9));
+      msftDiv1.setCurrency("USD");
       microsoft.getDividenden().add(msftDiv1);
 
       // Coca-Cola Aktie
@@ -65,9 +65,9 @@ public class DataInitializer {
 
       Dividend koDiv1 = new Dividend();
       koDiv1.setStock(cocaCola);
-      koDiv1.setBetrag(new BigDecimal("0.46"));
-      koDiv1.setDatum(LocalDate.of(2023, 4, 3));
-      koDiv1.setWaehrung("USD");
+      koDiv1.setAmount(new BigDecimal("0.46"));
+      koDiv1.setDate(LocalDate.of(2023, 4, 3));
+      koDiv1.setCurrency("USD");
       cocaCola.getDividenden().add(koDiv1);
 
       // Speichern der Aktien (Dividenden werden automatisch durch CascadeType.ALL gespeichert)

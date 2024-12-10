@@ -12,11 +12,11 @@ public class DividendDTO {
 
   @NotNull(message = "Betrag ist erforderlich")
   @Positive(message = "Betrag muss größer als 0 sein")
-  private BigDecimal betrag;
+  private BigDecimal amount;
 
   @NotNull(message = "Datum ist erforderlich")
-  private LocalDate datum;
+  private LocalDate date;
 
   @NotNull(message = "Währung ist erforderlich")
-  private String waehrung;
+  private String currency;
 }

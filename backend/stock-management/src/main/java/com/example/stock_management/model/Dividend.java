@@ -22,14 +22,14 @@ public class Dividend {
 
   @NotNull(message = "Betrag ist erforderlich")
   @Positive(message = "Betrag muss größer als 0 sein")
-  @Column(nullable = false, precision = 19, scale = 2)
-  private BigDecimal betrag;
+  @Column(name = "amount", nullable = false, precision = 19, scale = 2)
+  private BigDecimal amount;
 
   @NotNull(message = "Datum ist erforderlich")
-  @Column(nullable = false)
-  private LocalDate datum;
+  @Column(name = "date", nullable = false)
+  private LocalDate date;
 
   @NotNull(message = "Währung ist erforderlich")
-  @Column(nullable = false)
-  private String waehrung;
+  @Column(name = "currency", nullable = false)
+  private String currency;
 }
