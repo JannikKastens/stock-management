@@ -24,40 +24,40 @@ import { Dividend } from '../../models/dividend.interface';
         class="dividend-form"
       >
         <div class="form-group">
-          <label for="betrag">Betrag*</label>
+          <label for="amount">Betrag*</label>
           <input
-            id="betrag"
+            id="amount"
             type="number"
             step="0.01"
-            formControlName="betrag"
+            formControlName="amount"
           />
-          @if (dividendForm.get('betrag')?.errors?.['required'] &&
-          dividendForm.get('betrag')?.touched) {
+          @if (dividendForm.get('amount')?.errors?.['required'] &&
+          dividendForm.get('amount')?.touched) {
           <div class="error">Betrag ist erforderlich</div>
-          } @if (dividendForm.get('betrag')?.errors?.['min']) {
+          } @if (dividendForm.get('amount')?.errors?.['min']) {
           <div class="error">Betrag muss größer als 0 sein</div>
           }
         </div>
 
         <div class="form-group">
-          <label for="datum">Datum*</label>
-          <input id="datum" type="date" formControlName="datum" />
-          @if (dividendForm.get('datum')?.errors?.['required'] &&
-          dividendForm.get('datum')?.touched) {
+          <label for="date">Datum*</label>
+          <input id="date" type="date" formControlName="date" />
+          @if (dividendForm.get('date')?.errors?.['required'] &&
+          dividendForm.get('date')?.touched) {
           <div class="error">Datum ist erforderlich</div>
           }
         </div>
 
         <div class="form-group">
-          <label for="waehrung">Währung*</label>
-          <select id="waehrung" formControlName="waehrung">
+          <label for="currency">Währung*</label>
+          <select id="currency" formControlName="currency">
             <option value="EUR">EUR</option>
             <option value="USD">USD</option>
             <option value="CHF">CHF</option>
             <option value="GBP">GBP</option>
           </select>
-          @if (dividendForm.get('waehrung')?.errors?.['required'] &&
-          dividendForm.get('waehrung')?.touched) {
+          @if (dividendForm.get('currency')?.errors?.['required'] &&
+          dividendForm.get('currency')?.touched) {
           <div class="error">Währung ist erforderlich</div>
           }
         </div>
@@ -180,9 +180,9 @@ export class DividendFormComponent implements OnInit {
 
   ngOnInit() {
     this.dividendForm = this.fb.group({
-      betrag: ['', [Validators.required, Validators.min(0.01)]],
-      datum: ['', Validators.required],
-      waehrung: ['EUR', Validators.required],
+      amount: ['', [Validators.required, Validators.min(0.01)]],
+      date: ['', Validators.required],
+      currency: ['EUR', Validators.required],
     });
     this.stockId = Number(this.route.snapshot.paramMap.get('stockId'));
   }
@@ -191,9 +191,9 @@ export class DividendFormComponent implements OnInit {
     if (this.dividendForm.valid && this.stockId) {
       const formValues = this.dividendForm.value;
       const dividend = {
-        betrag: Number(formValues.betrag),
-        datum: new Date(formValues.datum as string),
-        waehrung: formValues.waehrung as string,
+        amount: Number(formValues.amount),
+        date: new Date(formValues.date as string),
+        currency: formValues.currency as string,
         stockId: this.stockId,
       } as Omit<Dividend, 'id'>;
 

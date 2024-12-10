@@ -33,9 +33,9 @@ import { Stock } from '../../models/stock.interface';
           <tr [routerLink]="['/stocks', stock.id]" style="cursor: pointer;">
             <td>{{ stock.tickerSymbol }}</td>
             <td>{{ stock.name }}</td>
-            <td>{{ stock.kaufDatum | date }}</td>
-            <td>{{ stock.kaufPreis | currency : 'EUR' }}</td>
-            <td>{{ stock.anzahl }}</td>
+            <td>{{ stock.purchaseDate | date }}</td>
+            <td>{{ stock.purchasePrice | currency : 'EUR' }}</td>
+            <td>{{ stock.amount }}</td>
           </tr>
           }
         </tbody>

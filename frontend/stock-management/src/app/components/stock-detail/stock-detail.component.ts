@@ -18,19 +18,19 @@ import { DividendService } from '../../services/dividend.service';
       <div class="stock-details">
         <div class="detail-item">
           <span class="label">Kaufdatum:</span>
-          <span>{{ stock.kaufDatum | date }}</span>
+          <span>{{ stock.purchaseDate | date }}</span>
         </div>
         <div class="detail-item">
           <span class="label">Kaufpreis:</span>
-          <span>{{ stock.kaufPreis | currency : 'EUR' }}</span>
+          <span>{{ stock.purchasePrice | currency : 'EUR' }}</span>
         </div>
         <div class="detail-item">
           <span class="label">Anzahl:</span>
-          <span>{{ stock.anzahl }}</span>
+          <span>{{ stock.amount }}</span>
         </div>
         <div class="detail-item">
           <span class="label">Sektor:</span>
-          <span>{{ stock.sektor }}</span>
+          <span>{{ stock.sector }}</span>
         </div>
       </div>
 
@@ -57,9 +57,9 @@ import { DividendService } from '../../services/dividend.service';
           <tbody>
             @for (dividend of dividends; track dividend.id) {
             <tr>
-              <td>{{ dividend.datum | date }}</td>
-              <td>{{ dividend.betrag | number : '1.2-2' }}</td>
-              <td>{{ dividend.waehrung }}</td>
+              <td>{{ dividend.date | date }}</td>
+              <td>{{ dividend.amount | number : '1.2-2' }}</td>
+              <td>{{ dividend.currency }}</td>
               <td>
                 <button
                   class="delete-button"

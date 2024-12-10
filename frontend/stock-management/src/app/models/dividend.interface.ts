@@ -1,7 +1,7 @@
 export interface Dividend {
   id: number;
-  betrag: number;
-  datum: Date;
-  waehrung: string;
+  amount: number;
+  date: Date;
+  currency: string;
   stockId: number;
 }

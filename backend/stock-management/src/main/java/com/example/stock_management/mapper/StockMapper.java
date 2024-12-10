@@ -16,11 +16,11 @@ public class StockMapper {
     dto.setId(stock.getId());
     dto.setTickerSymbol(stock.getTickerSymbol());
     dto.setName(stock.getName());
-    dto.setSektor(stock.getSektor());
+    dto.setSector(stock.getSector());
     dto.setIsin(stock.getIsin());
-    dto.setKaufDatum(stock.getKaufDatum());
-    dto.setKaufPreis(stock.getKaufPreis());
-    dto.setAnzahl(stock.getAnzahl());
+    dto.setPurchaseDate(stock.getPurchaseDate());
+    dto.setPurchasePrice(stock.getPurchasePrice());
+    dto.setAmount(stock.getAmount());
     return dto;
   }
 
@@ -37,10 +37,10 @@ public class StockMapper {
   public void updateEntityFromDto(StockDTO dto, Stock stock) {
     stock.setTickerSymbol(dto.getTickerSymbol());
     stock.setName(dto.getName());
-    stock.setSektor(dto.getSektor());
+    stock.setSector(dto.getSector());
     stock.setIsin(dto.getIsin());
-    stock.setKaufDatum(dto.getKaufDatum());
-    stock.setKaufPreis(dto.getKaufPreis());
-    stock.setAnzahl(dto.getAnzahl());
+    stock.setPurchaseDate(dto.getPurchaseDate());
+    stock.setPurchasePrice(dto.getPurchasePrice());
+    stock.setAmount(dto.getAmount());
   }
 }

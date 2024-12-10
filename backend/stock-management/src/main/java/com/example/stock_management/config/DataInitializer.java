@@ -23,52 +23,52 @@ public class DataInitializer {
       Stock apple = new Stock();
       apple.setTickerSymbol("AAPL");
       apple.setName("Apple Inc.");
-      apple.setSektor("Technologie");
+      apple.setSector("Technologie");
       apple.setIsin("US0378331005");
-      apple.setKaufDatum(LocalDate.of(2023, 1, 15));
-      apple.setKaufPreis(new BigDecimal("150.00"));
-      apple.setAnzahl(10);
+      apple.setPurchaseDate(LocalDate.of(2023, 1, 15));
+      apple.setPurchasePrice(new BigDecimal("150.00"));
+      apple.setAmount(10);
 
       Dividend appleDiv1 = new Dividend();
       appleDiv1.setStock(apple);
       appleDiv1.setAmount(new BigDecimal("0.24"));
       appleDiv1.setDate(LocalDate.of(2023, 2, 16));
       appleDiv1.setCurrency("USD");
-      apple.getDividenden().add(appleDiv1);
+      apple.getDividends().add(appleDiv1);
 
       // Microsoft Aktie
       Stock microsoft = new Stock();
       microsoft.setTickerSymbol("MSFT");
       microsoft.setName("Microsoft Corporation");
-      microsoft.setSektor("Technologie");
+      microsoft.setSector("Technologie");
       microsoft.setIsin("US5949181045");
-      microsoft.setKaufDatum(LocalDate.of(2023, 3, 20));
-      microsoft.setKaufPreis(new BigDecimal("280.00"));
-      microsoft.setAnzahl(5);
+      microsoft.setPurchaseDate(LocalDate.of(2023, 3, 20));
+      microsoft.setPurchasePrice(new BigDecimal("280.00"));
+      microsoft.setAmount(5);
 
       Dividend msftDiv1 = new Dividend();
       msftDiv1.setStock(microsoft);
       msftDiv1.setAmount(new BigDecimal("0.68"));
       msftDiv1.setDate(LocalDate.of(2023, 3, 9));
       msftDiv1.setCurrency("USD");
-      microsoft.getDividenden().add(msftDiv1);
+      microsoft.getDividends().add(msftDiv1);
 
       // Coca-Cola Aktie
       Stock cocaCola = new Stock();
       cocaCola.setTickerSymbol("KO");
       cocaCola.setName("The Coca-Cola Company");
-      cocaCola.setSektor("Konsumgüter");
+      cocaCola.setSector("Konsumgüter");
       cocaCola.setIsin("US1912161007");
-      cocaCola.setKaufDatum(LocalDate.of(2023, 2, 1));
-      cocaCola.setKaufPreis(new BigDecimal("60.00"));
-      cocaCola.setAnzahl(20);
+      cocaCola.setPurchaseDate(LocalDate.of(2023, 2, 1));
+      cocaCola.setPurchasePrice(new BigDecimal("60.00"));
+      cocaCola.setAmount(20);
 
       Dividend koDiv1 = new Dividend();
       koDiv1.setStock(cocaCola);
       koDiv1.setAmount(new BigDecimal("0.46"));
       koDiv1.setDate(LocalDate.of(2023, 4, 3));
       koDiv1.setCurrency("USD");
-      cocaCola.getDividenden().add(koDiv1);
+      cocaCola.getDividends().add(koDiv1);
 
       // Speichern der Aktien (Dividenden werden automatisch durch CascadeType.ALL gespeichert)
       stockRepository.save(apple);

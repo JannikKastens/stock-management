@@ -27,25 +27,25 @@ public class Stock {
   @Column(nullable = false)
   private String name;
 
-  @Column private String sektor;
+  @Column private String sector;
 
   @Column(unique = true)
   private String isin;
 
   @NotNull(message = "Kaufdatum ist erforderlich")
-  @Column(name = "kauf_datum", nullable = false)
-  private LocalDate kaufDatum;
+  @Column(name = "purchase_date", nullable = false)
+  private LocalDate purchaseDate;
 
   @NotNull(message = "Kaufpreis ist erforderlich")
   @Positive(message = "Kaufpreis muss größer als 0 sein")
-  @Column(name = "kauf_preis", nullable = false, precision = 19, scale = 2)
-  private BigDecimal kaufPreis;
+  @Column(name = "purchase_price", nullable = false, precision = 19, scale = 2)
+  private BigDecimal purchasePrice;
 
   @NotNull(message = "Anzahl ist erforderlich")
   @Positive(message = "Anzahl muss größer als 0 sein")
   @Column(nullable = false)
-  private Integer anzahl;
+  private Integer amount;
 
   @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Dividend> dividenden = new ArrayList<>();
+  private List<Dividend> dividends = new ArrayList<>();
 }

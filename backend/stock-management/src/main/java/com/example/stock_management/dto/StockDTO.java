@@ -17,17 +17,17 @@ public class StockDTO {
   @NotBlank(message = "Name ist erforderlich")
   private String name;
 
-  private String sektor;
+  private String sector;
   private String isin;
 
   @NotNull(message = "Kaufdatum ist erforderlich")
-  private LocalDate kaufDatum;
+  private LocalDate purchaseDate;
 
   @NotNull(message = "Kaufpreis ist erforderlich")
   @Positive(message = "Kaufpreis muss größer als 0 sein")
-  private BigDecimal kaufPreis;
+  private BigDecimal purchasePrice;
 
   @NotNull(message = "Anzahl ist erforderlich")
   @Positive(message = "Anzahl muss größer als 0 sein")
-  private Integer anzahl;
+  private Integer amount;
 }

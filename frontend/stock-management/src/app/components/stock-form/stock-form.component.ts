@@ -37,38 +37,47 @@ import { StockService } from '../../services/stock.service';
         </div>
 
         <div class="form-group">
-          <label for="kaufDatum">Kaufdatum*</label>
-          <input id="kaufDatum" type="date" formControlName="kaufDatum" />
-          @if (stockForm.get('kaufDatum')?.errors?.['required'] &&
-          stockForm.get('kaufDatum')?.touched) {
+          <label for="purchaseDate">Kaufdatum*</label>
+          <input id="purchaseDate" type="date" formControlName="purchaseDate" />
+          @if (stockForm.get('purchaseDate')?.errors?.['required'] &&
+          stockForm.get('purchaseDate')?.touched) {
           <div class="error">Kaufdatum ist erforderlich</div>
           }
         </div>
 
         <div class="form-group">
-          <label for="kaufPreis">Kaufpreis*</label>
+          <label for="purchasePrice">Kaufpreis*</label>
           <input
-            id="kaufPreis"
+            id="purchasePrice"
             type="number"
             step="0.01"
-            formControlName="kaufPreis"
+            formControlName="purchasePrice"
           />
-          @if (stockForm.get('kaufPreis')?.errors?.['required'] &&
-          stockForm.get('kaufPreis')?.touched) {
+          @if (stockForm.get('purchasePrice')?.errors?.['required'] &&
+          stockForm.get('purchasePrice')?.touched) {
           <div class="error">Kaufpreis ist erforderlich</div>
-          } @if (stockForm.get('kaufPreis')?.errors?.['min']) {
+          } @if (stockForm.get('purchasePrice')?.errors?.['min']) {
           <div class="error">Kaufpreis muss größer als 0 sein</div>
           }
         </div>
 
         <div class="form-group">
-          <label for="anzahl">Anzahl*</label>
-          <input id="anzahl" type="number" formControlName="anzahl" />
-          @if (stockForm.get('anzahl')?.errors?.['required'] &&
-          stockForm.get('anzahl')?.touched) {
+          <label for="quantity">Anzahl*</label>
+          <input id="quantity" type="number" formControlName="quantity" />
+          @if (stockForm.get('quantity')?.errors?.['required'] &&
+          stockForm.get('quantity')?.touched) {
           <div class="error">Anzahl ist erforderlich</div>
-          } @if (stockForm.get('anzahl')?.errors?.['min']) {
+          } @if (stockForm.get('quantity')?.errors?.['min']) {
           <div class="error">Anzahl muss größer als 0 sein</div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="sector">Sektor*</label>
+          <input id="sector" type="text" formControlName="sector" />
+          @if (stockForm.get('sector')?.errors?.['required'] &&
+          stockForm.get('sector')?.touched) {
+          <div class="error">Sektor ist erforderlich</div>
           }
         </div>
 
@@ -185,9 +194,10 @@ export class StockFormComponent {
     this.stockForm = this.fb.group({
       tickerSymbol: ['', Validators.required],
       name: ['', Validators.required],
-      kaufDatum: ['', Validators.required],
-      kaufPreis: ['', [Validators.required, Validators.min(0)]],
-      anzahl: ['', [Validators.required, Validators.min(1)]],
+      purchaseDate: ['', Validators.required],
+      purchasePrice: ['', [Validators.required, Validators.min(0.01)]],
+      quantity: ['', [Validators.required, Validators.min(1)]],
+      sector: ['', Validators.required],
     });
   }
 

@@ -28,9 +28,9 @@ class StockControllerIntegrationTest extends TestContainersConfig {
     StockDTO stockDTO = new StockDTO();
     stockDTO.setTickerSymbol("AAPL");
     stockDTO.setName("Apple Inc.");
-    stockDTO.setKaufDatum(LocalDate.now());
-    stockDTO.setKaufPreis(new BigDecimal("150.00"));
-    stockDTO.setAnzahl(10);
+    stockDTO.setPurchaseDate(LocalDate.now());
+    stockDTO.setPurchasePrice(new BigDecimal("150.00"));
+    stockDTO.setAmount(10);
 
     mockMvc
         .perform(
