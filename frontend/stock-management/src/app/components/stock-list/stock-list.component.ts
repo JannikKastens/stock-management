@@ -31,11 +31,11 @@ import { Stock } from '../../models/stock.interface';
         <tbody>
           @for (stock of stocks; track stock.id) {
           <tr>
-            <td>{{ stock.ticker }}</td>
+            <td>{{ stock.tickerSymbol }}</td>
             <td>{{ stock.name }}</td>
-            <td>{{ stock.purchaseDate | date }}</td>
-            <td>{{ stock.purchasePrice | currency : 'EUR' }}</td>
-            <td>{{ stock.quantity }}</td>
+            <td>{{ stock.kaufDatum | date }}</td>
+            <td>{{ stock.kaufPreis | currency : 'EUR' }}</td>
+            <td>{{ stock.anzahl }}</td>
           </tr>
           }
         </tbody>

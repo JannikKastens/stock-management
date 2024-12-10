@@ -1,8 +1,9 @@
 export interface Stock {
   id: number;
-  ticker: string;
+  tickerSymbol: string;
   name: string;
-  purchaseDate: string;
-  purchasePrice: number;
-  quantity: number;
+  sektor: string;
+  kaufDatum: Date;
+  kaufPreis: number;
+  anzahl: number;
 }
