@@ -62,15 +62,15 @@
 
 ---
 
-### Ticket 13: Dashboard-Ansicht (Mock-Kursverlauf)
+### Ticket 13: Dashboard-Ansicht
 
 **Beschreibung:**
 
 - `DashboardComponent` erstellen
 - Anzeige von Kennzahlen wie Gesamtwert des Portfolios, Gesamtdividenden
-- Integration eines Chart-Tools (z. B. Chart.js) zur Darstellung von Kursverläufen (zunächst Mock-Daten)
+- Integration eines Chart-Tools (z. B. Chart.js) zur Darstellung von Kursverläufen
 
 **Akzeptanzkriterien:**
 
-- Mock-Daten werden grafisch angezeigt
+- Daten werden grafisch angezeigt
 - Kennzahlen (z. B. Summen) werden korrekt berechnet und dargestellt

@@ -1,0 +1,97 @@
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.error {
+  color: #dc3545;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    margin: 0;
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+  }
+}
+
+.chart-section {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+
+  h3 {
+    margin: 0;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.monthly-dividends {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  height: 300px;
+  padding-bottom: 2rem;
+}
+
+.month-bar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 40px;
+
+  .bar {
+    width: 100%;
+    background: #3498db;
+    border-radius: 4px 4px 0 0;
+    transition: height 0.3s ease;
+  }
+
+  .month-label {
+    position: absolute;
+    bottom: -25px;
+    font-size: 0.8rem;
+    color: #666;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+  }
+
+  .amount {
+    position: absolute;
+    bottom: -45px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+}
