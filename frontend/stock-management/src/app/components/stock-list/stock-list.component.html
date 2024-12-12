@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Aktien-Übersicht</h1>
+
+  <div class="actions">
+    <button [routerLink]="['/stocks/new']" class="add-button">
+      Neue Aktie hinzufügen
+    </button>
+  </div>
+
+  <table class="stock-table">
+    <thead>
+      <tr>
+        <th>Ticker</th>
+        <th>Name</th>
+        <th>Kaufdatum</th>
+        <th>Kaufpreis</th>
+        <th>Anzahl</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (stock of stocks; track stock.id) {
+      <tr [routerLink]="['/stocks', stock.id]" style="cursor: pointer">
+        <td>{{ stock.tickerSymbol }}</td>
+        <td>{{ stock.name }}</td>
+        <td>{{ stock.purchaseDate | date }}</td>
+        <td>{{ stock.purchasePrice | currency : "EUR" }}</td>
+        <td>{{ stock.amount }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

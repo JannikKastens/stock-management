@@ -1,0 +1,69 @@
+<div class="container" *ngIf="stock">
+  <h1>{{ stock.name }} ({{ stock.tickerSymbol }})</h1>
+
+  <div class="stock-details">
+    <div class="detail-item">
+      <span class="label">Kaufdatum:</span>
+      <span>{{ stock.purchaseDate | date }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Kaufpreis:</span>
+      <span>{{ stock.purchasePrice | currency : "EUR" }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Anzahl:</span>
+      <span>{{ stock.amount }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Sektor:</span>
+      <span>{{ stock.sector }}</span>
+    </div>
+  </div>
+
+  <div class="dividends-section">
+    <div class="section-header">
+      <h2>Dividenden</h2>
+      <button
+        [routerLink]="['/stocks', stock.id, 'dividends', 'new']"
+        class="add-button"
+      >
+        Dividende hinzufügen
+      </button>
+    </div>
+
+    <table class="dividends-table" *ngIf="dividends.length > 0">
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Betrag</th>
+          <th>Währung</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (dividend of dividends; track dividend.id) {
+        <tr>
+          <td>{{ dividend.date | date }}</td>
+          <td>{{ dividend.amount | number : "1.2-2" }}</td>
+          <td>{{ dividend.currency }}</td>
+          <td>
+            <button class="delete-button" (click)="deleteDividend(dividend.id)">
+              Löschen
+            </button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+    <div class="no-dividends" *ngIf="dividends.length === 0">
+      Noch keine Dividenden vorhanden.
+    </div>
+  </div>
+
+  <div class="actions">
+    <button [routerLink]="['/stocks']" class="back-button">
+      Zurück zur Übersicht
+    </button>
+  </div>
+</div>
