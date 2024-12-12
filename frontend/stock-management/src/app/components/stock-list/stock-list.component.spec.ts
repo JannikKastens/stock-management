@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { StockListComponent } from './stock-list.component';
 import { StockService } from '../../services/stock.service';
 import { of } from 'rxjs';
@@ -14,7 +15,7 @@ describe('StockListComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [StockListComponent],
-      providers: [{ provide: StockService, useValue: spy }],
+      providers: [{ provide: StockService, useValue: spy }, provideRouter([])],
     }).compileComponents();
 
     stockService = TestBed.inject(StockService) as jasmine.SpyObj<StockService>;
