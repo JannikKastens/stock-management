@@ -73,4 +73,5 @@
 **Akzeptanzkriterien:**
 
 - Daten werden grafisch angezeigt
+
 - Kennzahlen (z. B. Summen) werden korrekt berechnet und dargestellt
