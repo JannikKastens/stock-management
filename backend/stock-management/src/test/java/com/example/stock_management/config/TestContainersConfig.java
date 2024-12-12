@@ -10,21 +10,21 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 public abstract class TestContainersConfig {
 
   @Container
-  static final PostgreSQLContainer<?> postgres =
+  private static final PostgreSQLContainer<?> postgres =
       new PostgreSQLContainer<>("postgres:16")
-          .withReuse(true)
           .withDatabaseName("testdb")
           .withUsername("test")
           .withPassword("test");
-
-  static {
-    postgres.start();
-  }
 
   @DynamicPropertySource
   static void configureProperties(DynamicPropertyRegistry registry) {
     registry.add("spring.datasource.url", postgres::getJdbcUrl);
     registry.add("spring.datasource.username", postgres::getUsername);
     registry.add("spring.datasource.password", postgres::getPassword);
+    // Configure HikariCP for tests
+    registry.add("spring.datasource.hikari.maximum-pool-size", () -> "5");
+    registry.add("spring.datasource.hikari.minimum-idle", () -> "1");
+    registry.add("spring.datasource.hikari.idle-timeout", () -> "10000");
+    registry.add("spring.datasource.hikari.max-lifetime", () -> "30000");
   }
 }

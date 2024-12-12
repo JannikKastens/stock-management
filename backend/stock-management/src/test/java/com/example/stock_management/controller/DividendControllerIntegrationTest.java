@@ -11,7 +11,7 @@ import com.example.stock_management.service.StockService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -24,13 +24,13 @@ import org.springframework.test.web.servlet.MockMvc;
 class DividendControllerIntegrationTest extends TestContainersConfig {
 
   @Autowired private MockMvc mockMvc;
-
   @Autowired private ObjectMapper objectMapper;
+  @Autowired private StockService stockService;
 
-  private static Long stockId;
+  private Long stockId;
 
-  @BeforeAll
-  static void setUpTestData(@Autowired StockService stockService) {
+  @BeforeEach
+  void setUpTestData() {
     try {
       StockDTO stockDTO = new StockDTO();
       stockDTO.setTickerSymbol("AAPL");
@@ -66,10 +66,23 @@ class DividendControllerIntegrationTest extends TestContainersConfig {
 
   @Test
   void whenGetDividendsByStockId_thenReturns200() throws Exception {
+    // Create a test dividend first
+    DividendDTO dividendDTO = new DividendDTO();
+    dividendDTO.setAmount(new BigDecimal("0.88"));
+    dividendDTO.setDate(LocalDate.now());
+    dividendDTO.setCurrency("USD");
+
+    mockMvc.perform(
+        post("/api/v1/dividends/stock/" + stockId)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(dividendDTO)));
+
+    // Then test getting the dividends
     mockMvc
         .perform(get("/api/v1/dividends/stock/" + stockId))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$").isArray());
+        .andExpect(jsonPath("$").isArray())
+        .andExpect(jsonPath("$[0]").exists());
   }
 
   @Test
