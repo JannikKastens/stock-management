@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [AppComponent],
+      providers: [provideRouter([])],
     }).compileComponents();
   });
 
@@ -20,10 +22,11 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('stock-management');
   });
 
-  it('should render title', () => {
+  it('should render navigation links', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, stock-management');
+    expect(compiled.querySelector('nav')?.textContent).toContain('Dashboard');
+    expect(compiled.querySelector('nav')?.textContent).toContain('Stocks');
   });
 });
