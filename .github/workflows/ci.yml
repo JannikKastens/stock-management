@@ -23,7 +23,14 @@ jobs:
           cache: maven
 
       - name: Build and Test with Maven
-        run: mvn -B test
+        run: mvn -B clean verify
+
+      - name: Publish JUnit test results
+        uses: dorny/test-reporter@v1
+        with:
+          name: "Backend JUnit Results"
+          path: "backend/stock-management/target/surefire-reports/TEST-*.xml"
+          reporter: "junit"
 
   frontend-tests:
     runs-on: ubuntu-latest
