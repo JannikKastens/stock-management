@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
         this.loading = false;
       },
       error: (error) => {
-        this.error = 'Fehler beim Laden der Dashboard-Daten';
+        this.error = 'Error loading dashboard data';
         this.loading = false;
         console.error('Dashboard error:', error);
       },

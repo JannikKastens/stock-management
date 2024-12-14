@@ -42,7 +42,7 @@ export class StockFormComponent {
         },
         error: (error) => {
           console.error('Error creating stock:', error);
-          // Hier könnte man noch eine Fehlermeldung für den Benutzer anzeigen
+          // Could display an error message to the user here
         },
       });
     }
