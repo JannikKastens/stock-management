@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Neue Aktie hinzufügen</h1>
+  <h1>Add New Stock</h1>
 
   <form [formGroup]="stockForm" (ngSubmit)="onSubmit()" class="stock-form">
     <div class="form-group">
@@ -7,7 +7,7 @@
       <input id="tickerSymbol" type="text" formControlName="tickerSymbol" />
       @if (stockForm.get('tickerSymbol')?.errors?.['required'] &&
       stockForm.get('tickerSymbol')?.touched) {
-      <div class="error">Ticker Symbol ist erforderlich</div>
+      <div class="error">Ticker Symbol is required</div>
       }
     </div>
 
@@ -16,21 +16,21 @@
       <input id="name" type="text" formControlName="name" />
       @if (stockForm.get('name')?.errors?.['required'] &&
       stockForm.get('name')?.touched) {
-      <div class="error">Name ist erforderlich</div>
+      <div class="error">Name is required</div>
       }
     </div>
 
     <div class="form-group">
-      <label for="purchaseDate">Kaufdatum*</label>
+      <label for="purchaseDate">Purchase Date*</label>
       <input id="purchaseDate" type="date" formControlName="purchaseDate" />
       @if (stockForm.get('purchaseDate')?.errors?.['required'] &&
       stockForm.get('purchaseDate')?.touched) {
-      <div class="error">Kaufdatum ist erforderlich</div>
+      <div class="error">Purchase date is required</div>
       }
     </div>
 
     <div class="form-group">
-      <label for="purchasePrice">Kaufpreis*</label>
+      <label for="purchasePrice">Purchase Price*</label>
       <input
         id="purchasePrice"
         type="number"
@@ -39,38 +39,38 @@
       />
       @if (stockForm.get('purchasePrice')?.errors?.['required'] &&
       stockForm.get('purchasePrice')?.touched) {
-      <div class="error">Kaufpreis ist erforderlich</div>
+      <div class="error">Purchase price is required</div>
       } @if (stockForm.get('purchasePrice')?.errors?.['min']) {
-      <div class="error">Kaufpreis muss größer als 0 sein</div>
+      <div class="error">Purchase price must be greater than 0</div>
       }
     </div>
 
     <div class="form-group">
-      <label for="quantity">Anzahl*</label>
+      <label for="quantity">Quantity*</label>
       <input id="quantity" type="number" formControlName="quantity" />
       @if (stockForm.get('quantity')?.errors?.['required'] &&
       stockForm.get('quantity')?.touched) {
-      <div class="error">Anzahl ist erforderlich</div>
+      <div class="error">Quantity is required</div>
       } @if (stockForm.get('quantity')?.errors?.['min']) {
-      <div class="error">Anzahl muss größer als 0 sein</div>
+      <div class="error">Quantity must be greater than 0</div>
       }
     </div>
 
     <div class="form-group">
-      <label for="sector">Sektor*</label>
+      <label for="sector">Sector*</label>
       <input id="sector" type="text" formControlName="sector" />
       @if (stockForm.get('sector')?.errors?.['required'] &&
       stockForm.get('sector')?.touched) {
-      <div class="error">Sektor ist erforderlich</div>
+      <div class="error">Sector is required</div>
       }
     </div>
 
     <div class="form-actions">
       <button type="button" class="cancel-button" (click)="onCancel()">
-        Abbrechen
+        Cancel
       </button>
       <button type="submit" class="submit-button" [disabled]="!stockForm.valid">
-        Speichern
+        Save
       </button>
     </div>
   </form>
