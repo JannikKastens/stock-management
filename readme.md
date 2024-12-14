@@ -11,6 +11,8 @@ A full-stack application for managing stock portfolios and tracking dividends, b
 
 ## Quick Start
 
+You can start the whole application with "docker compose up" in root or start backend and frontend seperately like below.
+
 ### Backend
 
 1. Start the PostgreSQL database:
@@ -43,3 +45,26 @@ The frontend will be available at `http://localhost:4200`
 - View portfolio performance metrics
 - RESTful API backend
 - Responsive Angular frontend
+
+## Tech Stack
+
+- **Backend**
+
+  - Spring Boot 3.4
+  - Java 21
+  - PostgreSQL 16
+  - Maven
+  - JUNit
+  - JPA/Hibernate
+
+- **Frontend**
+
+  - Angular 18
+  - TypeScript
+  - SCSS
+  - RxJS
+  - Jasmine/Karma (Testing)
+
+- **DevOps & Tools**
+  - Docker
+  - GitHub Actions
