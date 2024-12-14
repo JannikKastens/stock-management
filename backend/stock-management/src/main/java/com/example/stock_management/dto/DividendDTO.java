@@ -10,13 +10,13 @@ import lombok.Data;
 public class DividendDTO {
   private Long id;
 
-  @NotNull(message = "Betrag ist erforderlich")
-  @Positive(message = "Betrag muss größer als 0 sein")
+  @NotNull(message = "Amount is required")
+  @Positive(message = "Amount must be greater than 0")
   private BigDecimal amount;
 
-  @NotNull(message = "Datum ist erforderlich")
+  @NotNull(message = "Date is required")
   private LocalDate date;
 
-  @NotNull(message = "Währung ist erforderlich")
+  @NotNull(message = "Currency is required")
   private String currency;
 }

@@ -26,12 +26,12 @@ public class StockService {
     return stockRepository
         .findById(id)
         .map(stockMapper::toDto)
-        .orElseThrow(() -> new EntityNotFoundException("Aktie nicht gefunden mit ID: " + id));
+        .orElseThrow(() -> new EntityNotFoundException("Stock not found with ID: " + id));
   }
 
   public StockDTO createStock(StockDTO stockDTO) {
     if (stockDTO.getIsin() != null && stockRepository.existsByIsin(stockDTO.getIsin())) {
-      throw new IllegalArgumentException("Eine Aktie mit dieser ISIN existiert bereits");
+      throw new IllegalArgumentException("A stock with this ISIN already exists");
     }
     Stock stock = stockMapper.toEntity(stockDTO);
     Stock savedStock = stockRepository.save(stock);
@@ -42,7 +42,7 @@ public class StockService {
     Stock stock =
         stockRepository
             .findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Aktie nicht gefunden mit ID: " + id));
+            .orElseThrow(() -> new EntityNotFoundException("Stock not found with ID: " + id));
 
     stockMapper.updateEntityFromDto(stockDTO, stock);
     Stock updatedStock = stockRepository.save(stock);
@@ -51,7 +51,7 @@ public class StockService {
 
   public void deleteStock(Long id) {
     if (!stockRepository.existsById(id)) {
-      throw new EntityNotFoundException("Aktie nicht gefunden mit ID: " + id);
+      throw new EntityNotFoundException("Stock not found with ID: " + id);
     }
     stockRepository.deleteById(id);
   }

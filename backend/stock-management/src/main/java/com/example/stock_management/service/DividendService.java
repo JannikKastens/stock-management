@@ -29,8 +29,7 @@ public class DividendService {
     Stock stock =
         stockRepository
             .findById(stockId)
-            .orElseThrow(
-                () -> new EntityNotFoundException("Aktie nicht gefunden mit ID: " + stockId));
+            .orElseThrow(() -> new EntityNotFoundException("Stock not found with ID: " + stockId));
 
     Dividend dividend = dividendMapper.toEntity(dividendDTO);
     dividend.setStock(stock);
@@ -43,8 +42,7 @@ public class DividendService {
     Dividend dividend =
         dividendRepository
             .findById(id)
-            .orElseThrow(
-                () -> new EntityNotFoundException("Dividende nicht gefunden mit ID: " + id));
+            .orElseThrow(() -> new EntityNotFoundException("Dividend not found with ID: " + id));
 
     dividendMapper.updateEntityFromDto(dividendDTO, dividend);
     Dividend updatedDividend = dividendRepository.save(dividend);
@@ -53,7 +51,7 @@ public class DividendService {
 
   public void deleteDividend(Long id) {
     if (!dividendRepository.existsById(id)) {
-      throw new EntityNotFoundException("Dividende nicht gefunden mit ID: " + id);
+      throw new EntityNotFoundException("Dividend not found with ID: " + id);
     }
     dividendRepository.deleteById(id);
   }

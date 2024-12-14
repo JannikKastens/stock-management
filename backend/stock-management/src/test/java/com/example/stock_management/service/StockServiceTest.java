@@ -111,7 +111,7 @@ class StockServiceTest {
 
       assertThatThrownBy(() -> stockService.getStockById(1L))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Aktie nicht gefunden mit ID: 1");
+          .hasMessageContaining("Stock not found with ID: 1");
     }
   }
 
@@ -138,7 +138,7 @@ class StockServiceTest {
 
       assertThatThrownBy(() -> stockService.createStock(testStockDTO))
           .isInstanceOf(IllegalArgumentException.class)
-          .hasMessageContaining("Eine Aktie mit dieser ISIN existiert bereits");
+          .hasMessageContaining("A stock with this ISIN already exists");
     }
   }
 
@@ -166,7 +166,7 @@ class StockServiceTest {
 
       assertThatThrownBy(() -> stockService.updateStock(1L, testStockDTO))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Aktie nicht gefunden mit ID: 1");
+          .hasMessageContaining("Stock not found with ID: 1");
     }
   }
 
@@ -193,7 +193,7 @@ class StockServiceTest {
 
       assertThatThrownBy(() -> stockService.deleteStock(1L))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Aktie nicht gefunden mit ID: 1");
+          .hasMessageContaining("Stock not found with ID: 1");
     }
   }
 }

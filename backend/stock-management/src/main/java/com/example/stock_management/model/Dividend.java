@@ -20,16 +20,16 @@ public class Dividend {
   @JoinColumn(name = "stock_id", nullable = false)
   private Stock stock;
 
-  @NotNull(message = "Betrag ist erforderlich")
-  @Positive(message = "Betrag muss größer als 0 sein")
+  @NotNull(message = "Amount is required")
+  @Positive(message = "Amount must be greater than 0")
   @Column(name = "amount", nullable = false, precision = 19, scale = 2)
   private BigDecimal amount;
 
-  @NotNull(message = "Datum ist erforderlich")
+  @NotNull(message = "Date is required")
   @Column(name = "date", nullable = false)
   private LocalDate date;
 
-  @NotNull(message = "Währung ist erforderlich")
+  @NotNull(message = "Currency is required")
   @Column(name = "currency", nullable = false)
   private String currency;
 }
