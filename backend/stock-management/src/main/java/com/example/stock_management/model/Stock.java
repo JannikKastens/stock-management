@@ -19,11 +19,11 @@ public class Stock {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @NotBlank(message = "Ticker Symbol ist erforderlich")
+  @NotBlank(message = "Ticker Symbol is required")
   @Column(nullable = false)
   private String tickerSymbol;
 
-  @NotBlank(message = "Name ist erforderlich")
+  @NotBlank(message = "Name is required")
   @Column(nullable = false)
   private String name;
 
@@ -32,17 +32,17 @@ public class Stock {
   @Column(unique = true)
   private String isin;
 
-  @NotNull(message = "Kaufdatum ist erforderlich")
+  @NotNull(message = "Purchase date is required")
   @Column(name = "purchase_date", nullable = false)
   private LocalDate purchaseDate;
 
-  @NotNull(message = "Kaufpreis ist erforderlich")
-  @Positive(message = "Kaufpreis muss größer als 0 sein")
+  @NotNull(message = "Purchase price is required")
+  @Positive(message = "Purchase price must be greater than 0")
   @Column(name = "purchase_price", nullable = false, precision = 19, scale = 2)
   private BigDecimal purchasePrice;
 
-  @NotNull(message = "Anzahl ist erforderlich")
-  @Positive(message = "Anzahl muss größer als 0 sein")
+  @NotNull(message = "Amount is required")
+  @Positive(message = "Amount must be greater than 0")
   @Column(nullable = false)
   private Integer amount;
 

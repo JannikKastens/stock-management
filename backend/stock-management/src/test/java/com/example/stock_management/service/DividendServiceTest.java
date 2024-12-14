@@ -120,7 +120,7 @@ class DividendServiceTest {
 
       assertThatThrownBy(() -> dividendService.createDividend(1L, testDividendDTO))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Aktie nicht gefunden mit ID: 1");
+          .hasMessageContaining("Stock not found with ID: 1");
     }
   }
 
@@ -153,7 +153,7 @@ class DividendServiceTest {
 
       assertThatThrownBy(() -> dividendService.updateDividend(1L, testDividendDTO))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Dividende nicht gefunden mit ID: 1");
+          .hasMessageContaining("Dividend not found with ID: 1");
     }
   }
 
@@ -180,7 +180,7 @@ class DividendServiceTest {
 
       assertThatThrownBy(() -> dividendService.deleteDividend(1L))
           .isInstanceOf(EntityNotFoundException.class)
-          .hasMessageContaining("Dividende nicht gefunden mit ID: 1");
+          .hasMessageContaining("Dividend not found with ID: 1");
     }
   }
 }
