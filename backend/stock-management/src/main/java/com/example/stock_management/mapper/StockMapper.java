@@ -20,7 +20,7 @@ public class StockMapper {
     dto.setIsin(stock.getIsin());
     dto.setPurchaseDate(stock.getPurchaseDate());
     dto.setPurchasePrice(stock.getPurchasePrice());
-    dto.setAmount(stock.getAmount());
+    dto.setQuantity(stock.getQuantity());
     return dto;
   }
 
@@ -41,6 +41,6 @@ public class StockMapper {
     stock.setIsin(dto.getIsin());
     stock.setPurchaseDate(dto.getPurchaseDate());
     stock.setPurchasePrice(dto.getPurchasePrice());
-    stock.setAmount(dto.getAmount());
+    stock.setQuantity(dto.getQuantity());
   }
 }

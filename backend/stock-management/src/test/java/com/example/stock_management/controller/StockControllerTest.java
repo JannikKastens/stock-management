@@ -52,7 +52,7 @@ class StockControllerTest {
     testStockDTO.setIsin("US0378331005");
     testStockDTO.setPurchaseDate(LocalDate.now());
     testStockDTO.setPurchasePrice(new BigDecimal("150.00"));
-    testStockDTO.setAmount(10);
+    testStockDTO.setQuantity(10);
   }
 
   @Nested

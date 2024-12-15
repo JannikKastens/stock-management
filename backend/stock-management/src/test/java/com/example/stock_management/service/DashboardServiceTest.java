@@ -44,7 +44,7 @@ class DashboardServiceTest {
     testStock.setId(1L);
     testStock.setTickerSymbol("AAPL");
     testStock.setPurchasePrice(new BigDecimal("150.00"));
-    testStock.setAmount(10);
+    testStock.setQuantity(10);
 
     testDividend = new Dividend();
     testDividend.setId(1L);
