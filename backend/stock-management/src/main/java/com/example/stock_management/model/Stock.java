@@ -41,10 +41,10 @@ public class Stock {
   @Column(name = "purchase_price", nullable = false, precision = 19, scale = 2)
   private BigDecimal purchasePrice;
 
-  @NotNull(message = "Amount is required")
-  @Positive(message = "Amount must be greater than 0")
+  @NotNull(message = "Quantity is required")
+  @Positive(message = "Quantity must be greater than 0")
   @Column(nullable = false)
-  private Integer amount;
+  private Integer quantity;
 
   @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<Dividend> dividends = new ArrayList<>();

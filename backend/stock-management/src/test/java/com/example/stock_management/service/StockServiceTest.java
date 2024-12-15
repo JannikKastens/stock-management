@@ -47,7 +47,7 @@ class StockServiceTest {
     testStock.setIsin("US0378331005");
     testStock.setPurchaseDate(LocalDate.now());
     testStock.setPurchasePrice(new BigDecimal("150.00"));
-    testStock.setAmount(10);
+    testStock.setQuantity(10);
 
     testStockDTO = new StockDTO();
     testStockDTO.setTickerSymbol("AAPL");
@@ -56,7 +56,7 @@ class StockServiceTest {
     testStockDTO.setIsin("US0378331005");
     testStockDTO.setPurchaseDate(LocalDate.now());
     testStockDTO.setPurchasePrice(new BigDecimal("150.00"));
-    testStockDTO.setAmount(10);
+    testStockDTO.setQuantity(10);
   }
 
   @Nested

@@ -50,7 +50,7 @@ class DividendServiceTest {
     testStock.setName("Apple Inc.");
     testStock.setPurchaseDate(LocalDate.now());
     testStock.setPurchasePrice(new BigDecimal("150.00"));
-    testStock.setAmount(10);
+    testStock.setQuantity(10);
 
     testDividend = new Dividend();
     testDividend.setId(1L);

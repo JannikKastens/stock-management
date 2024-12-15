@@ -27,7 +27,7 @@ public class StockDTO {
   @Positive(message = "Purchase price must be greater than 0")
   private BigDecimal purchasePrice;
 
-  @NotNull(message = "Amount is required")
-  @Positive(message = "Amount must be greater than 0")
-  private Integer amount;
+  @NotNull(message = "Quantity is required")
+  @Positive(message = "Quantity must be greater than 0")
+  private Integer quantity;
 }

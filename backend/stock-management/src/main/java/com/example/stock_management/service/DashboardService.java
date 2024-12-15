@@ -30,7 +30,8 @@ public class DashboardService {
     // Calculate total value of all stocks
     BigDecimal totalValue =
         stockRepository.findAll().stream()
-            .map(stock -> stock.getPurchasePrice().multiply(BigDecimal.valueOf(stock.getAmount())))
+            .map(
+                stock -> stock.getPurchasePrice().multiply(BigDecimal.valueOf(stock.getQuantity())))
             .reduce(BigDecimal.ZERO, BigDecimal::add);
 
     // Calculate total dividends
